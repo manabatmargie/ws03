@@ -1,0 +1,8 @@
+/vendor
+/node_modules
+/.env
+/config/db.php
+.env
+.vscode
+Thumbs.db
+desktop.init
