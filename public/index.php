@@ -1,20 +1,16 @@
 <?php
 
 require '../helpers.php';
+require basePath('Database.php');
 
-require basePath('views/home.view.php');
+require basePath('Router.php');
 
-$routes = [
-    '/' => 'controllers/home.php',
-    '/listings' => 'controllers/listings/index.php',
-    '/listings/create' => 'controllers/listings/create.php',
-    '404' => 'controllers/error/404.php'
-];
+$router = new Router();
 
-$uri = $_SERVER['REQUEST_URI'];
+$routes = require basePath('routes.php');
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+// If URI is empty or just a slash, ensure it matches the home route
 
-if (array_key_exists($uri, $routes)) {
-    require(basePath($routes[$uri]));
-} else {
-    require basePath($routes['404']);
-}
+$method = $_SERVER['REQUEST_METHOD'];
+
+$router->route($uri, $method);

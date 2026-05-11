@@ -167,6 +167,24 @@ footer,
   background-color: var(--color-page-bg) !important;
 }
 
+/* PROSPLE LOGO HOVER - Gold with underline */
+header > div:first-child a,
+header .flex.items-center a,           /* common Tailwind structure */
+header h1 a,
+header a.text-2xl,
+header a.font-bold {
+  color: #FFFFFF !important;
+  transition: all 0.3s ease !important;
+}
+
+header > div:first-child a:hover,
+header .flex.items-center a:hover,
+header h1 a:hover {
+  color: #F5C842 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+}
 
 /* ----------------------------------------------------------------
    HEADER TEXT FIX — puting text sa header (Login, Register, Logo)
@@ -234,10 +252,40 @@ header nav a:hover {
 }
 
 /* ----------------------------------------------------------------
-   ADVANCED ZONE — Para sa gustong mag-explore pa!
-   ----------------------------------------------------------------
-   Alisin ang /* at */ para i-activate ang isang rule.
+   DETAILS BUTTON HOVER EFFECT
    ---------------------------------------------------------------- */
+
+a[href="details.html"]:hover {
+  background-color: var(--color-accent) !important;
+  color: #FFFFFF !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ----------------------------------------------------------------
+   LOGIN & REGISTER BUTTON HOVER DARKEN
+   ---------------------------------------------------------------- */
+
+button[type="submit"]:hover {
+  filter: brightness(0.85) !important;
+  transition: filter 0.3s ease !important;
+}
+
+/* ----------------------------------------------------------------
+   LOGIN & REGISTER BUTTON HOVER + LINK HOVER
+   ---------------------------------------------------------------- */
+
+/* Login / Register submit button hover */
+button[type="submit"]:hover {
+  background-color: var(--color-accent) !important;
+  transition: background-color 0.3s ease !important;
+}
+
+/* "Register" link sa Login page / "Login" link sa Register page hover */
+p a.text-blue-900:hover {
+  color: var(--color-accent) !important;
+  text-decoration: underline !important;
+  transition: color 0.3s ease !important;
+}
 
 /* Hover effect sa mga link */
 /* a:hover {
