@@ -1,6 +1,6 @@
-<?= loadPartial('head'); ?>
-<?= loadPartial('navbar'); ?>
-<?= loadPartial('head'); ?>
+<?php loadPartial('head'); ?>
+<?php loadPartial('navbar'); ?>
+<?php loadPartial('head'); ?>
 
 <section>
     <div class="container mx-auto p-4 mt-4">

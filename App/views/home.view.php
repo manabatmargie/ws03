@@ -1,11 +1,11 @@
 <?php
-require basePath('views/partials/head.php'); ?>
+require basePath('App/views/partials/head.php'); ?>
 <?php
-require basePath('views/partials/navbar.php'); ?>
+require basePath('App/views/partials/navbar.php'); ?>
 <?php
-require basePath('views/partials/showcase-search.php'); ?>
+require basePath('App/views/partials/showcase-search.php'); ?>
 <?php
-require basePath('views/partials/top-banner.php'); ?>
+require basePath('App/views/partials/top-banner.php'); ?>
 
 
 <!-- Job Listings -->
@@ -52,6 +52,6 @@ require basePath('views/partials/top-banner.php'); ?>
 </html>
 
 <?php
-require basePath('views/partials/bottom-banner.php'); ?>
+require basePath('App/views/partials/bottom-banner.php'); ?>
 <?php
-require basePath('views/partials/footer.php'); ?>
+require basePath('App/views/partials/footer.php'); ?>

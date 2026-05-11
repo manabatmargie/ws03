@@ -251,14 +251,27 @@ header nav a:hover {
   color: #FFFFFF !important;
 }
 
-/* ----------------------------------------------------------------
-   DETAILS BUTTON HOVER EFFECT
-   ---------------------------------------------------------------- */
+/* ================================================
+   DETAILS BUTTON ONLY - Specific Hover
+   ================================================ */
 
-a[href="details.html"]:hover {
+a[href="details.html"],
+a[href*="details.html"],
+a.rounded-lg:last-child,
+.bg-white a:last-child {
+  transition: all 0.4s ease !important;
+  display: inline-block !important;   /* Mahalaga ito para gumana ang lift */
+}
+
+/* Hover effect - BUTTON LANG */
+a[href="details.html"]:hover,
+a[href*="details.html"]:hover,
+a.rounded-lg:last-child:hover,
+.bg-white a:last-child:hover {
   background-color: var(--color-accent) !important;
   color: #FFFFFF !important;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transform: translateY(-5px) !important;
+  box-shadow: 0 15px 35px rgba(166, 124, 0, 0.5) !important;
 }
 
 /* ----------------------------------------------------------------
@@ -286,6 +299,99 @@ p a.text-blue-900:hover {
   text-decoration: underline !important;
   transition: color 0.3s ease !important;
 }
+
+/* ================================================================
+   ADDED HOVER EFFECTS — Search, Details, Edit Buttons
+   ================================================================ */
+
+/* ====================== SEARCH BUTTON ====================== */
+header button[type="submit"],
+header .bg-yellow-500,
+header [class*="search"] button,
+header button:has(.fa-search),
+header .yellow-button {
+  transition: all 0.3s ease !important;
+}
+
+header button[type="submit"]:hover,
+header .bg-yellow-500:hover,
+header [class*="search"] button:hover {
+  background-color: #8F6A00 !important;           /* Mas madilim na gold */
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(166, 124, 0, 0.4) !important;
+  filter: brightness(1.08) !important;
+}
+
+/* =====================================================
+   SPECIFIC HOVER EFFECTS BASED ON YOUR HTML
+   ===================================================== */
+
+/* 1. SEARCH BUTTON (Header - Yellow) */
+header .bg-yellow-500,
+header a.bg-yellow-500 {
+  transition: all 0.35s ease !important;
+}
+
+header .bg-yellow-500:hover,
+header a.bg-yellow-500:hover {
+  background-color: #8F6A00 !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 10px 25px rgba(143, 106, 0, 0.5) !important;
+  filter: brightness(1.1) !important;
+}
+
+/* 2. EDIT BUTTON (sa Job Details) */
+a[href="/edit"],
+.bg-blue-500 {
+  transition: all 0.35s ease !important;
+}
+
+a[href="/edit"]:hover,
+.bg-blue-500:hover {
+  background-color: #1E2A44 !important;     /* Mas madilim na blue */
+  transform: translateY(-3px) !important;
+  box-shadow: 0 10px 25px rgba(30, 64, 175, 0.4) !important;
+}
+
+/* 3. DELETE BUTTON */
+.bg-red-500 {
+  transition: all 0.35s ease !important;
+}
+
+.bg-red-500:hover {
+  background-color: #B91C1C !important;     /* Mas madilim na red */
+  transform: translateY(-3px) !important;
+  box-shadow: 0 10px 25px rgba(185, 28, 28, 0.4) !important;
+}
+
+/* ================================================
+   APPLY NOW BUTTON HOVER
+   ================================================ */
+
+a[href*="mailto"],
+.bg-indigo-100,
+.text-indigo-700.bg-indigo-100,
+.block.w-full.text-center {
+  transition: all 0.35s ease !important;
+  display: inline-block !important;
+}
+
+/* Apply Now Hover Effect */
+a[href*="mailto"]:hover,
+.bg-indigo-100:hover,
+.text-indigo-700.bg-indigo-100:hover {
+  background-color: var(--color-accent) !important;   /* Gold */
+  color: #FFFFFF !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 30px rgba(166, 124, 0, 0.5) !important;
+  border-color: var(--color-accent) !important;
+}
+
+/* ----------------------------------------------------------------
+   ADVANCED ZONE — Para sa gustong mag-explore pa!
+   ----------------------------------------------------------------
+   Alisin ang /* at */ 
+   /*---------------------------------------------------------------- */
 
 /* Hover effect sa mga link */
 /* a:hover {

@@ -45,11 +45,11 @@ class Router
                 $route['uri'] === $uri
                 && $route['method'] === $method
             ) {
-                require basePath($route['controller']);
+                require basePath('App/' . $route['controller']);
                 return;
             }
         }
 
-        $this->error(404);
+        $this->error();
     }
 }
