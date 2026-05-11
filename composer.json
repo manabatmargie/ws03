@@ -1,0 +1,15 @@
+{
+    "name": "margiemanabat/ws03-php",
+    "description": "Job seeker application",
+    "authors": [
+        {"name": "Margie Manabat",
+        "email": "manabatmargie06@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "Framework/",
+            "App\\": "App/"
+        }
+    }
+}
