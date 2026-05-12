@@ -210,6 +210,10 @@ header nav a:hover {
   color: #F5C842 !important;
 }
 
+a:hover {
+  color: #8F6A00 !important;
+  text-decoration: underline;
+}
 
 /* ----------------------------------------------------------------
    HERO SECTION FIX — puting text sa ibabaw ng overlay/image
@@ -341,14 +345,9 @@ header a.bg-yellow-500:hover {
 }
 
 /* 2. EDIT BUTTON (sa Job Details) */
-a[href="/edit"],
-.bg-blue-500 {
-  transition: all 0.35s ease !important;
-}
-
 a[href="/edit"]:hover,
 .bg-blue-500:hover {
-  background-color: #1E2A44 !important;     /* Mas madilim na blue */
+  background-color: #F5C842 !important;     /* Mas madilim na blue */
   transform: translateY(-3px) !important;
   box-shadow: 0 10px 25px rgba(30, 64, 175, 0.4) !important;
 }
@@ -363,6 +362,8 @@ a[href="/edit"]:hover,
   transform: translateY(-3px) !important;
   box-shadow: 0 10px 25px rgba(185, 28, 28, 0.4) !important;
 }
+
+
 
 /* ================================================
    APPLY NOW BUTTON HOVER

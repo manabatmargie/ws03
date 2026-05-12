@@ -2,16 +2,20 @@
 
 namespace Framework;
 
+use App\Controllers\ErrorController;
+
 class Router
 {
     protected $routes = [];
 
-    public function RegisterRoute($method, $uri, $controller)
+    public function RegisterRoute($method, $uri, $action)
     {
+        list($controller, $controllerMethod) = explode('@', $action);
         $this->routes[] = [
             'method' => $method,
             'uri' => $uri,
-            'controller' => $controller
+            'controller' => $controller,
+            'controllerMethod' => $controllerMethod
         ];
     }
 
@@ -34,12 +38,7 @@ class Router
     {
         $this->RegisterRoute('DELETE', $uri, $controller);
     }
-    public function error($httpCode = 404)
-    {
-        http_response_code($httpCode);
-        loadView("error/{$httpCode}");
-        exit;
-    }
+
     public function route($uri, $method)
     {
         foreach ($this->routes as $route) {
@@ -47,11 +46,17 @@ class Router
                 $route['uri'] === $uri
                 && $route['method'] === $method
             ) {
-                require basePath('App/' . $route['controller']);
+                //Extract controller and controller method
+                $controller = 'App\\Controllers\\' . $route['controller'];
+                $controllerMethod = $route['controllerMethod'];
+
+                //Instantiate controller class
+                $controllerInstance = new $controller();
+                $controllerInstance->$controllerMethod();
                 return;
             }
         }
 
-        $this->error();
+        ErrorController::notFound();
     }
 }
