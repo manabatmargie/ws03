@@ -8,7 +8,7 @@ class ErrorController
     {
         http_response_code(404);
 
-        loadView('home', [
+        loadView('error', [
             'status' => '404',
             'message' => $message
         ]);
@@ -16,9 +16,9 @@ class ErrorController
 
     public static function unathorized($message = 'You are not authorized to view this page')
     {
-        http_response_code(404);
+        http_response_code(403);
 
-        loadView('home', [
+        loadView('error', [
             'status' => '403',
             'message' => $message
         ]);

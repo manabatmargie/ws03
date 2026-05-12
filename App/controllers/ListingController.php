@@ -7,6 +7,7 @@ use Framework\Database;
 class ListingController
 {
     protected $db;
+
     public function __construct()
     {
         $config = require basePath('config/db.php');
@@ -25,14 +26,21 @@ class ListingController
     {
         loadView('listings/create');
     }
-    public function show()
+
+    public function show($params)
     {
-        $id = $_GET['id'] ?? '';
+        $id = $params['id'] ?? '';
         $params = [
             'id' => $id
         ];
 
         $listing = $this->db->query('SELECT * FROM listings WHERE id = :id', $params)->fetch();
+
+        //Check if listing exist
+        if (!$listing) {
+            ErrorController::notFound('Listing not found');
+            return;
+        }
 
         loadView('listings/show', [
             'listing' => $listing

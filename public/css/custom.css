@@ -167,9 +167,34 @@ footer,
   background-color: var(--color-page-bg) !important;
 }
 
-/* PROSPLE LOGO HOVER - Gold with underline */
+/* ----------------------------------------------------------------
+   HEADER & FOOTER LINKS — Consistent hover para sa dalawa
+   Gold color + underline, same effect
+   ---------------------------------------------------------------- */
+
+/* Base styles para sa lahat ng links sa header at footer */
+header a,
+header .text-blue-900,
+header .text-blue-800,
+header .text-blue-700,
+header nav a,
+header .text-gray-300,
+header .text-gray-200,
+header .text-white,
+footer a,
+footer nav a,
+footer .text-gray-300,
+footer .text-gray-400,
+footer .text-white {
+  color: #FFFFFF !important;
+  opacity: 0.9;
+  transition: color 0.3s ease, opacity 0.3s ease !important;
+  text-decoration: none !important;
+}
+
+/* Logo/brand link sa header — puting text din */
 header > div:first-child a,
-header .flex.items-center a,           /* common Tailwind structure */
+header .flex.items-center a,
 header h1 a,
 header a.text-2xl,
 header a.font-bold {
@@ -177,42 +202,30 @@ header a.font-bold {
   transition: all 0.3s ease !important;
 }
 
-header > div:first-child a:hover,
-header .flex.items-center a:hover,
-header h1 a:hover {
-  color: #F5C842 !important;
-  text-decoration: underline !important;
-  text-underline-offset: 6px;
-  text-decoration-thickness: 2px;
-}
-
 /* ----------------------------------------------------------------
-   HEADER TEXT FIX — puting text sa header (Login, Register, Logo)
+   GENERAL LINK HOVER (outside header/footer)
    ---------------------------------------------------------------- */
-
-header a,
-header .text-blue-900,
-header .text-blue-800,
-header .text-blue-700 {
-  color: #FFFFFF !important;
-}
-
-header nav a,
-header .text-gray-300,
-header .text-gray-200,
-header .text-white {
-  color: #FFFFFF !important;
-  opacity: 0.9;
-}
-
-header nav a:hover {
-  opacity: 1 !important;
-  color: #F5C842 !important;
-}
 
 a:hover {
   color: #8F6A00 !important;
   text-decoration: underline;
+}
+
+/* Hover — PAREHONG effect sa header at footer — PAGKATAPOS ng a:hover para manalo */
+header a:hover,
+header nav a:hover,
+footer a:hover,
+footer nav a:hover,
+header > div:first-child a:hover,
+header .flex.items-center a:hover,
+header h1 a:hover,
+header a.text-2xl:hover,
+header a.font-bold:hover {
+  color: #F5C842 !important;
+  opacity: 1 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 6px !important;
+  text-decoration-thickness: 2px !important;
 }
 
 /* ----------------------------------------------------------------
@@ -241,18 +254,28 @@ a:hover {
   text-shadow: none !important;
 }
 
-/* ----------------------------------------------------------------
-   CTA SECTION FIX — "Post a Job" button visibility
-   ---------------------------------------------------------------- */
+/* ------------------------------------------------
+   SEARCH BUTTON HOVER 
+   ------------------------------------------------ */
 
-.bg-blue-900 a.rounded,
-.bg-blue-900 a.rounded-lg,
-.bg-blue-900 a.rounded-full,
-.bg-blue-800 a.rounded,
-.bg-blue-800 a.rounded-lg,
-.bg-blue-800 a.rounded-full {
-  background-color: #A67C00 !important;
+/* Base transition para sa Search button */
+button[type="submit"],
+input[type="submit"],
+.bg-yellow-500.w-full,
+form button {
+  transition: all 0.35s ease !important;
+  display: inline-block !important;
+}
+
+/* Search button hover */
+button[type="submit"]:hover,
+input[type="submit"]:hover,
+.bg-yellow-500.w-full:hover,
+form button:hover {
+  background-color: #8F6A00 !important;   
   color: #FFFFFF !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(143, 106, 0, 0.4) !important;
 }
 
 /* ================================================
@@ -264,7 +287,7 @@ a[href*="details.html"],
 a.rounded-lg:last-child,
 .bg-white a:last-child {
   transition: all 0.4s ease !important;
-  display: inline-block !important;   /* Mahalaga ito para gumana ang lift */
+  display: inline-block !important;   
 }
 
 /* Hover effect - BUTTON LANG */
@@ -278,24 +301,9 @@ a.rounded-lg:last-child:hover,
   box-shadow: 0 15px 35px rgba(166, 124, 0, 0.5) !important;
 }
 
-/* ----------------------------------------------------------------
-   LOGIN & REGISTER BUTTON HOVER DARKEN
-   ---------------------------------------------------------------- */
-
-button[type="submit"]:hover {
-  filter: brightness(0.85) !important;
-  transition: filter 0.3s ease !important;
-}
-
-/* ----------------------------------------------------------------
+/* ------------------------------------------------
    LOGIN & REGISTER BUTTON HOVER + LINK HOVER
-   ---------------------------------------------------------------- */
-
-/* Login / Register submit button hover */
-button[type="submit"]:hover {
-  background-color: var(--color-accent) !important;
-  transition: background-color 0.3s ease !important;
-}
+   ------------------------------------------------ */
 
 /* "Register" link sa Login page / "Login" link sa Register page hover */
 p a.text-blue-900:hover {
@@ -304,66 +312,53 @@ p a.text-blue-900:hover {
   transition: color 0.3s ease !important;
 }
 
-/* ================================================================
-   ADDED HOVER EFFECTS — Search, Details, Edit Buttons
-   ================================================================ */
+/* ================================================
+   EDIT BUTTON - WHITE TEXT ONLY
+   ================================================ */
 
-/* ====================== SEARCH BUTTON ====================== */
-header button[type="submit"],
-header .bg-yellow-500,
-header [class*="search"] button,
-header button:has(.fa-search),
-header .yellow-button {
-  transition: all 0.3s ease !important;
+.bg-yellow-500,
+button.bg-yellow-500,
+a.bg-yellow-500,
+.edit-button,
+a[href*="edit"] {
+    color: #FFFFFF !important;
+    font-weight: 400;
 }
 
-header button[type="submit"]:hover,
-header .bg-yellow-500:hover,
-header [class*="search"] button:hover {
-  background-color: #8F6A00 !important;           /* Mas madilim na gold */
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 20px rgba(166, 124, 0, 0.4) !important;
-  filter: brightness(1.08) !important;
-}
-
-/* =====================================================
-   SPECIFIC HOVER EFFECTS BASED ON YOUR HTML
-   ===================================================== */
-
-/* 1. SEARCH BUTTON (Header - Yellow) */
-header .bg-yellow-500,
-header a.bg-yellow-500 {
-  transition: all 0.35s ease !important;
-}
-
-header .bg-yellow-500:hover,
-header a.bg-yellow-500:hover {
-  background-color: #8F6A00 !important;
-  transform: translateY(-3px) !important;
-  box-shadow: 0 10px 25px rgba(143, 106, 0, 0.5) !important;
-  filter: brightness(1.1) !important;
-}
-
-/* 2. EDIT BUTTON (sa Job Details) */
-a[href="/edit"]:hover,
-.bg-blue-500:hover {
-  background-color: #F5C842 !important;     /* Mas madilim na blue */
-  transform: translateY(-3px) !important;
-  box-shadow: 0 10px 25px rgba(30, 64, 175, 0.4) !important;
+/* Hover effect para sa Edit button */
+.bg-yellow-500:hover,
+button.bg-yellow-500:hover,
+a.bg-yellow-500:hover,
+a[href*="edit"]:hover {
+    color: #FFFFFF !important;
+    background-color: #8F6A00 !important;   
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(143, 106, 0, 0.4);
 }
 
 /* 3. DELETE BUTTON */
-.bg-red-500 {
-  transition: all 0.35s ease !important;
+.bg-red-500,
+button.bg-red-500,
+a.bg-red-500,
+a[href*="delete"] {
+    color: #FFFFFF !important;
+    font-weight: 400;
+    transition: all 0.3s ease !important;
 }
 
-.bg-red-500:hover {
-  background-color: #B91C1C !important;     /* Mas madilim na red */
-  transform: translateY(-3px) !important;
-  box-shadow: 0 10px 25px rgba(185, 28, 28, 0.4) !important;
+/* Delete hover  */
+.bg-red-500:hover,
+button.bg-red-500:hover,
+a.bg-red-500:hover,
+a[href*="delete"]:hover {
+    color: #FFFFFF !important;
+    background-color: #EF4444 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+    text-decoration: underline !important;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
 }
-
-
 
 /* ================================================
    APPLY NOW BUTTON HOVER
