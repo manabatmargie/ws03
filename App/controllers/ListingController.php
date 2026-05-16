@@ -225,17 +225,29 @@ class ListingController
             }
         }
         if (!empty($errors)) {
-            \loadView('listings/edit', [
+            loadView('listings/edit', [
                 'listing' => $listing,
                 'errors' => $errors
             ]);
             exit;
         } else {
             //Submit to DB
-            \inspectAndDie('Success');
+            $updateFields = [];
+
+            foreach (array_keys($updatedValues) as $field) {
+                $updateFields[] = "{$field} = :{$field}";
+            }
+            $updateFields = implode(', ', $updateFields);
+
+            $updateQuery = "UPDATE listings SET $updateFields WHERE id = :id";
+
+            $updatedValues['id'] = $id;
+
+            $this->db->query($updateQuery, $updatedValues);
+
+            $_SESSION['success_message'] = 'Listing Updated';
+
+            redirect('/listings/' . $id);
         }
-
-
-        \inspectAndDie($errors);
     }
 }
