@@ -108,11 +108,11 @@ class UserController
 
 
         //Get new user ID
-        $userId = $this->db->conn->lastInsertId();
+        $userid = $this->db->conn->lastInsertId();
 
         //Set user session
         Session::set('user', [
-            'id' => $userId,
+            'id' => $userid,
             'name' => $name,
             'email' => $email,
             'city' => $city,
@@ -188,7 +188,7 @@ class UserController
         }
         //Set user session
         Session::set('user', [
-            'id' => $user->Id,
+            'id' => $user->id,
             'name' => $user->name,
             'email' => $user->email,
             'city' => $user->city,
